@@ -1,3 +1,4 @@
+import json
 import sys
 from pathlib import Path
 
@@ -91,6 +92,17 @@ with right:
 with left:
     st.subheader("Model comparison")
     plot_metric_bars(metrics, task, metric)
+
+    # Load and display dataset statistics
+    profile_path = OUTPUT_DIR / "experiments" / "corpus_profile.json"
+    if profile_path.exists():
+        with open(profile_path, "r") as f:
+            profile = json.load(f)
+        st.subheader("Dataset Statistics")
+        col1, col2, col3 = st.columns(3)
+        col1.metric("Total Queries", profile.get("num_queries", 0))
+        col2.metric("Total Cases", profile.get("num_cases", 0))
+        col3.metric("Total Statutes", profile.get("num_statutes", 0))
 
 st.subheader("Performance insights")
 task_metrics = metrics[metrics["task"] == task].copy()
