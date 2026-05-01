@@ -1,0 +1,9 @@
+pandas
+numpy
+scikit-learn
+sentence-transformers
+rank_bm25
+streamlit
+matplotlib
+kagglehub
+joblib

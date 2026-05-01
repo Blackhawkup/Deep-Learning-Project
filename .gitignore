@@ -1,0 +1,14 @@
+__pycache__/
+.streamlit/
+.venv/
+venv/
+data/raw/
+data/cases/
+data/statutes/
+data/queries/
+data/qrels/
+data/processed/
+models/
+outputs/
+pip_tmp/
+*.pyc
